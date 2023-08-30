@@ -3,11 +3,11 @@ import pymongo, json
 
 class CURD:
     def __init__(self):
-        self.client = pymongo.MongoClient('mongodb', 27017)
+        self.client = pymongo.MongoClient('mongodb.mongo-namespace.svc.cluster.local', 27017)
 
     def connection(self):
         try:
-            self.client = pymongo.MongoClient('mongodb', 27017)
+            self.client = pymongo.MongoClient('mongodb.mongo-namespace.svc.cluster.local', 27017)
             print(self.client)
         except Exception:
             print("Connection Error")
@@ -41,3 +41,5 @@ class CURD:
 if __name__ == "__main__":
     ob = CURD()
     ob.connection()
+    # ob.create("aa","ccc")
+    # ob.update("aa","cccc")'''

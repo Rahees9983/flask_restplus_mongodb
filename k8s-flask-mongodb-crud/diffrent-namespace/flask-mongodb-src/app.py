@@ -7,11 +7,11 @@ import json,pymongo
 
 class CURD:
     def __init__(self):
-        self.client = pymongo.MongoClient('mongodb', 27017)
+        self.client = pymongo.MongoClient('mongodb.mongo-namespace.svc.cluster.local', 27017)
 
     def connection(self):
         try:
-            self.client = pymongo.MongoClient('mongodb', 27017)
+            self.client = pymongo.MongoClient('mongodb.mongo-namespace.svc.cluster.local', 27017)
             print(self.client)
         except Exception:
             print("Connection Error")
@@ -109,4 +109,4 @@ class S1(flask_restplus.Resource):
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host="0.0.0.0",port=5000)
+    app.run(debug=True,host="0.0.0.0",port=5555)

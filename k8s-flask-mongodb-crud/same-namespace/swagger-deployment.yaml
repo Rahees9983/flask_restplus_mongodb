@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: swagger
+  name: swagger
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swagger
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: swagger
+    spec:
+      containers:
+      - image: rahees9983/swagger-mongodb:v1
+        imagePullPolicy: IfNotPresent
+        name: swagger-mongodb
+        ports:
+        - containerPort: 5000
+          protocol: TCP
